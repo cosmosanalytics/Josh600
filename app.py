@@ -16,20 +16,19 @@ s, p, sp, pp = loadData()
 col1, col2 = st.columns(2)
 with col1:
     p1 = st.selectbox('Select production plant-generic combination', pd.Series(p.columns).apply(lambda x: x.split('_')[0]).unique())
-    fig, ax = plt.subplots(figsize=(20,10))  
+    fig, ax = plt.subplots(figsize=(10,5))  
     try:
         smape, corrcoef = pp.loc[p1,'corr. coef'].split('_')[0], pp.loc[p1,'corr. coef'].split('_')[1]
-        title = 'corr. coef. = '+corrcoef+', smape = '+smape
-        st.write(title)
-        p[p.columns[p.columns.str.contains(p1)]].plot(ax=ax, title=title)
+        p[p.columns[p.columns.str.contains(p1)]].plot(ax=ax, title='corr. coef. = '+corrcoef+', smape = '+smape)
     except:
         pass
     st.pyplot(fig)
 with col2:
     s1 = st.selectbox('Select shipment plant-generic combination', pd.Series(s.columns).apply(lambda x: x.split('_')[0]).unique())
-    fig, ax = plt.subplots(figsize=(20,10))  
+    fig, ax = plt.subplots(figsize=(10,5))  
     try:
-        s[s.columns[s.columns.str.contains(s1)]].plot(ax=ax)
+        smape, corrcoef = sp.loc[s1,'corr. coef'].split('_')[0], sp.loc[s1,'corr. coef'].split('_')[1]
+        s[s.columns[s.columns.str.contains(s1)]].plot(ax=ax, title='corr. coef. = '+corrcoef+', smape = '+smape)
     except:
         pass
     st.pyplot(fig)
