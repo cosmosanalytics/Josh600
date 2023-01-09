@@ -19,7 +19,9 @@ with col1:
     fig, ax = plt.subplots(figsize=(20,10))  
     try:
         smape, corrcoef = pp.loc[p1].str.split('-')[0], pp.loc[p1].str.split('-')[1]
-        p[p.columns[p.columns.str.contains(p1)]].plot(ax=ax, title='corr. coef. = '+corrcoef+', smape = '+smape)
+        title = 'corr. coef. = '+corrcoef+', smape = '+smape
+        st.write(title)
+        p[p.columns[p.columns.str.contains(p1)]].plot(ax=ax, title=title)
     except:
         pass
     st.pyplot(fig)
