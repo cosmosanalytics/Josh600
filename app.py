@@ -13,7 +13,7 @@ def loadData():
 s, p = loadData()
 col1, col2 = st.columns(2)
 with col1:
-    pl = st.selectbox('Select production plant-generic combination', pd.Series(p.columns).apply(lambda x: x.split('_')[0]))
+    pl = st.selectbox('Select production plant-generic combination', pd.Series(p.columns).apply(lambda x: x.split('_')[0]).unique())
     fig, ax = plt.subplots(figsize=(20,10))  
     try:
         p[p.columns[p.columns.str.contains(pl)]].plot(ax=ax)
@@ -21,10 +21,10 @@ with col1:
         pass
     st.pyplot(fig)
 with col2:
-    sl = st.multiselect('Select shipment plant-generic combination', s.columns)
-    fig, ax = plt.subplots(figsize=(20,10))    
+    sl = st.selectbox('Select production plant-generic combination', pd.Series(s.columns).apply(lambda x: x.split('_')[0]).unique())
+    fig, ax = plt.subplots(figsize=(20,10))  
     try:
-        s[sl].plot(ax=ax)
+        s[s.columns[s.columns.str.contains(sl)]].plot(ax=ax)
     except:
         pass
     st.pyplot(fig)
