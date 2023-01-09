@@ -21,7 +21,7 @@ with col1:
         pass
     st.pyplot(fig)
 with col2:
-    sl = st.selectbox('Select production plant-generic combination', pd.Series(s.columns).apply(lambda x: x.split('_')[0]).unique())
+    sl = st.selectbox('Select shipment plant-generic combination', pd.Series(s.columns).apply(lambda x: x.split('_')[0]).unique())
     fig, ax = plt.subplots(figsize=(20,10))  
     try:
         s[s.columns[s.columns.str.contains(sl)]].plot(ax=ax)
