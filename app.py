@@ -18,8 +18,7 @@ with col1:
     p1 = st.selectbox('Select production plant-generic combination', pd.Series(p.columns).apply(lambda x: x.split('_')[0]).unique())
     fig, ax = plt.subplots(figsize=(20,10))  
     try:
-        ax = p[p.columns[p.columns.str.contains(p1)]].plot()
-        ax.set_title(pp.loc[p1])
+        p[p.columns[p.columns.str.contains(p1)]].plot(ax=ax, title=pp.loc[p1])
     except:
         pass
     st.pyplot(fig)
