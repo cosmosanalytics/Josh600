@@ -13,13 +13,19 @@ def loadData():
 s, p = loadData()
 col1, col2 = st.columns(2)
 with col1:
-    pl = st.multiselect('Select production plant-generic combination', p.columns)
-    fig, ax = plt.subplots(figsize=(20,10))    
-    p[pl].plot(ax=ax)
+    pl = st.multiselect('Select production plant-generic combination', pd.Series(p.columns).apply(lambda x: x.split('_')[0]))
+    fig, ax = plt.subplots(figsize=(20,10))  
+    try:
+        p[pl].plot(ax=ax)
+    except:
+        pass
     st.pyplot(fig)
 with col2:
     sl = st.multiselect('Select shipment plant-generic combination', s.columns)
     fig, ax = plt.subplots(figsize=(20,10))    
-    s[sl].plot(ax=ax)
+    try:
+        s[sl].plot(ax=ax)
+    except:
+        pass
     st.pyplot(fig)
      
