@@ -16,12 +16,13 @@ with col1:
     fig, ax = plt.subplots(figsize=(20,10))
     st.title('Production')
     gp = st.multiselect('Select plant-generic combination', p.columns)
+    st.write(gp)
     p[gp].plot()
     st.pyplot(fig)
 with col2:
     fig, ax = plt.subplots(figsize=(20,10))
     st.title('Shipment')
-    gp = st.multiselect('Select plant-generic combination', p.columns)
+    gp = st.multiselect('Select plant-generic combination', s.columns)
     s[gp].plot()
     st.pyplot(fig)
      
