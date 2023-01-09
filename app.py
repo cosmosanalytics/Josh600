@@ -17,8 +17,8 @@ col1, col2 = st.columns(2)
 with col1:
     p1 = st.selectbox('Select production plant-generic combination', pd.Series(p.columns).apply(lambda x: x.split('_')[0]).unique())
     fig, ax = plt.subplots(figsize=(20,10)) 
-    st.write('this is the first'+pp.loc[p1].str.split('_')[0])
-    st.write('this is the second'+pp.loc[p1].str.split('_')[1])
+    st.write('this is the first',pp.loc[p1].str.split('_')[0])
+    st.write('this is the second',pp.loc[p1].str.split('_')[1])
     smape, corrcoef = pp.loc[p1].str.split('_')[0], pp.loc[p1].str.split('_')[1]
     title = 'corr. coef. = '+corrcoef+', smape = '+smape
     st.write(title)
