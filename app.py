@@ -6,8 +6,8 @@ st.title('Josh 600 Actual vs Model')
 
 @st.cache
 def loadData():
-    s = pd.read_csv('Josh_s.csv', index_col = 0); s.index = s.index.dt.date
-    p = pd.read_csv('Josh_p.csv', index_col = 0); p.index = p.index.dt.date
+    s = pd.read_csv('Josh_s.csv', index_col = 0); s.index = pd.Series(s.index).dt.date
+    p = pd.read_csv('Josh_p.csv', index_col = 0); p.index = pd.Series(p.index).dt.date
     sp = pd.read_csv('Josh_s_perf.csv', index_col = 0);
     pp = pd.read_csv('Josh_p_perf.csv', index_col = 0);     
     return s, p, sp,pp
