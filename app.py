@@ -16,7 +16,7 @@ with col1:
     fig, ax = plt.subplots(figsize=(20,10))
     st.title('Production')
     gp = st.multiselect('Select plant-generic combination', p.columns)
-    st.write(gp.values)
+    st.write(list(gp))
     p[gp].plot()
     st.pyplot(fig)
 with col2:
