@@ -19,6 +19,7 @@ with col1:
     fig, ax = plt.subplots(figsize=(20,10))  
     try:
         p[p.columns[p.columns.str.contains(p1)]].plot(ax=ax)
+        st.write(pp.loc[p1])
         ax.set_title(pp.loc[p1])
     except:
         pass
