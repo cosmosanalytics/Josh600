@@ -16,7 +16,7 @@ with col1:
     pl = st.selectbox('Select production plant-generic combination', pd.Series(p.columns).apply(lambda x: x.split('_')[0]))
     fig, ax = plt.subplots(figsize=(20,10))  
     try:
-        p[p.columns[p.columns.str.contains(pl)].plot(ax=ax)
+        p[p.columns[p.columns.str.contains(pl)]].plot(ax=ax)
     except:
         pass
     st.pyplot(fig)
