@@ -17,7 +17,7 @@ col1, col2 = st.columns(2)
 with col1:
     p1 = st.selectbox('Select production plant-generic combination', pd.Series(p.columns).apply(lambda x: x.split('_')[0]).unique())
     fig, ax = plt.subplots(figsize=(20,10))  
-    st.write(pp.loc[p1,'corr. coef'].split('_'))
+    st.write(pp.loc[p1,'corr. coef'].split('_')[0])
     try:
         smape, corrcoef = pp.loc[p1,'corr. coef'].str.split('_')[0], pp.loc[p1,'corr. coef'].str.split('_')[1]
         title = 'corr. coef. = '+corrcoef+', smape = '+smape
