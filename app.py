@@ -37,11 +37,9 @@ with col1:
         pass   
 with col2:
     s1 = st.selectbox('Select shipment plant-generic combination', pd.Series(s.columns).apply(lambda x: x.split('_')[0]).unique())
-    fig, ax = plt.subplots(figsize=(10,5))  
     try:
         smape, corrcoef = sp.loc[s1,'corr. coef'].split('_')[0], sp.loc[s1,'corr. coef'].split('_')[1]
-        s[s.columns[s.columns.str.contains(s1)]].plot(ax=ax, title='corr. coef. = '+corrcoef+', smape = '+smape)
+        ps_plot(s[s.columns[s.columns.str.contains(s1)]])
     except:
         pass
-    st.pyplot(fig)
-     
+    
