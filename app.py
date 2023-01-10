@@ -24,7 +24,7 @@ with col1:
         p_plot = p[p.columns[p.columns.str.contains(p1)]]
         p_plot['col0 avg'] = p_plot[p_plot.columns[0]].mean(); p_plot['col0 std'] = p_plot[p_plot.columns[0]].std()
         p_plot['col0 avg+std'] = p_plot['col0 avg'] + p_plot['col0 avg']; p_plot['col0 avg-std'] = p_plot['col0 avg'] - p_plot['col0 std']
-        p_plot[p_plot.columns[0]].plot(ax=ax); p_plot[['col0 avg','col0 avg+std','col0 avg-std']].plot(ax=ax)
+        p_plot[p_plot.columns[0]].plot(ax=ax); p_plot[['col0 avg','col0 avg+std','col0 avg-std']].plot(ax=ax, color='blue')
         p_plot[p_plot.columns[1]].plot(ax=ax)
         ax.set_title('hihiicorr. coef. = '+corrcoef+', smape = '+smape)
 
