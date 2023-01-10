@@ -28,8 +28,8 @@ with col1:
         p_plot['col1 avg'] = p_plot[p_plot.columns[1]].mean(); p_plot['col1 std'] = p_plot[p_plot.columns[1]].std()
         p_plot['col1 avg+std'] = p_plot['col1 avg'] + p_plot['col1 avg']; p_plot['col1 avg-std'] = p_plot['col1 avg'] - p_plot['col1 std']
         
-        p_plot[p_plot.columns[0]].plot(ax=ax, color='blue'); p_plot[['col0 avg','col0 avg+std','col0 avg-std']].plot(ax=ax, color='blue')
-        p_plot[p_plot.columns[1]].plot(ax=ax, color='orange'); p_plot[['col0 avg','col1 avg+std','col1 avg-std']].plot(ax=ax, color='orange')
+        p_plot[p_plot.columns[0]].plot(ax=ax, color='blue'); p_plot[['col0 avg','col0 avg+std','col0 avg-std']].plot(ax=ax, color='blue', linestyle = '--')
+        p_plot[p_plot.columns[1]].plot(ax=ax, color='orange'); p_plot[['col0 avg','col1 avg+std','col1 avg-std']].plot(ax=ax, color='orange', linestyle = '--')
         ax.set_title('hihiicorr. coef. = '+corrcoef+', smape = '+smape)
 
     except:
