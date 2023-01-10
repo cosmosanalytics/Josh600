@@ -21,7 +21,7 @@ with col1:
         smape, corrcoef = pp.loc[p1,'corr. coef'].split('_')[0], pp.loc[p1,'corr. coef'].split('_')[1]
         p_plot = p[p.columns[p.columns.str.contains(p1)]]
         ax = p_plot.plot(ax=ax, title='corr. coef. = '+corrcoef+', smape = '+smape)
-        ax.axhline(y=np.nanmean(p_plot[p_plot.columns[0]]))
+        ax.axhline(x=p_plot.index, y=np.nanmean(p_plot[p_plot.columns[0]]))
     except:
         pass
     st.pyplot(fig)
