@@ -20,8 +20,10 @@ with col1:
     try:
         smape, corrcoef = pp.loc[p1,'corr. coef'].split('_')[0], pp.loc[p1,'corr. coef'].split('_')[1]
         p_plot = p[p.columns[p.columns.str.contains(p1)]]
-        ax = p_plot.plot(ax=ax, title='corr. coef. = '+corrcoef+', smape = '+smape)
-        ax.axhline(x=p_plot.index, y=np.nanmean(p_plot[p_plot.columns[0]]))
+        p_plot[p_plot.columns[0]].plot(ax=ax)
+        p_plot[p_plot.columns[1]].plot(ax=ax)
+        ax.set_title('corr. coef. = '+corrcoef+', smape = '+smape)
+
     except:
         pass
     st.pyplot(fig)
