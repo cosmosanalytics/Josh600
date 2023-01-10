@@ -15,11 +15,9 @@ def loadData():
 def ps_plot(ps):
     fig, ax = plt.subplots(figsize=(10,5))
     ps['col0 avg'] = ps[ps.columns[0]].mean(); ps['col0 std'] = ps[ps.columns[0]].std()
-    st.write(ps['col0 avg'], ps['col0 std'])
-    ps['col0 avg+std'] = ps['col0 avg'] + ps['col0 avg']; ps['col0 avg-std'] = ps['col0 avg'] - ps['col0 std']
-    st.write(ps['col0 avg+std'], ps['col0 avg-std'])
+    ps['col0 avg+std'] = ps['col0 avg'] + ps['col0 std']; ps['col0 avg-std'] = ps['col0 avg'] - ps['col0 std']
     ps['col1 avg'] = ps[ps.columns[1]].mean(); ps['col1 std'] = ps[ps.columns[1]].std()
-    ps['col1 avg+std'] = ps['col1 avg'] + ps['col1 avg']; ps['col1 avg-std'] = ps['col1 avg'] - ps['col1 std']
+    ps['col1 avg+std'] = ps['col1 avg'] + ps['col1 std']; ps['col1 avg-std'] = ps['col1 avg'] - ps['col1 std']
     
     ps[ps.columns[0]].plot(ax=ax, color='blue', legend=True); 
     ps[['col0 avg','col0 avg+std','col0 avg-std']].plot(ax=ax, color='blue', linestyle = '--', alpha=0.5, legend=None)
