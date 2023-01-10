@@ -22,7 +22,7 @@ with col1:
         p_plot = p[p.columns[p.columns.str.contains(p1)]]
         p_plot[p_plot.columns[0]].plot(ax=ax)
         p_plot[p_plot.columns[1]].plot(ax=ax)
-        ax.set_title('corr. coef. = '+corrcoef+', smape = '+smape)
+        ax.set_title('hihiicorr. coef. = '+corrcoef+', smape = '+smape)
 
     except:
         pass
