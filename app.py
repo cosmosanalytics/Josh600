@@ -19,7 +19,9 @@ with col1:
     fig, ax = plt.subplots(figsize=(10,5))  
     try:
         smape, corrcoef = pp.loc[p1,'corr. coef'].split('_')[0], pp.loc[p1,'corr. coef'].split('_')[1]
-        p[p.columns[p.columns.str.contains(p1)]].plot(ax=ax, title='corr. coef. = '+corrcoef+', smape = '+smape)
+        p_plot = p[p.columns[p.columns.str.contains(p1)]]
+        p_plot.plot(ax=ax, title='corr. coef. = '+corrcoef+', smape = '+smape)
+        ax.axhline(y=np.nanmean(p_plot))
     except:
         pass
     st.pyplot(fig)
