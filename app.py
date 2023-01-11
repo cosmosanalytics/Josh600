@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 st.set_page_config(layout="wide")
 st.title('Josh 600 Actual vs Model')
 
-@st.cache
+# @st.cache
 def loadData():
     s = pd.read_csv('Josh_s.csv', index_col = 0); s.index = pd.to_datetime(s.index)
     p = pd.read_csv('Josh_p.csv', index_col = 0); p.index = pd.to_datetime(p.index)
