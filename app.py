@@ -27,6 +27,7 @@ def ps_plot(ps):
     st.pyplot(fig)
  
 s, p, sp, pp = loadData()
+st.write(p)
 col1, col2 = st.columns(2)
 with col1:
     p1 = st.selectbox('Select production plant-generic combination', pd.Series(p.columns).apply(lambda x: x.split('_')[0]).unique())  
